@@ -16,8 +16,9 @@ jobs:
 
       - name: Download kube-review
         run: |
-          curl -o kube-review https://github.com/anderseknert/kube-review/releases/download/v0.2.0/kube-review-linux-amd64
-          chmod +x kube-review
+          mkdir bin
+          curl -L -o bin/kube-review https://github.com/anderseknert/kube-review/releases/download/v0.2.0/kube-review-linux-amd64
+          chmod +x bin/kube-review
 
       - name: Validate backup policies
         run: ./validate.sh
