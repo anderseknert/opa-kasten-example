@@ -1,0 +1,54 @@
+{
+    "kind": "AdmissionReview",
+    "apiVersion": "admission.k8s.io/v1",
+    "request": {
+        "uid": "72c69a11-45ec-407a-89ee-9a1654d1fb8e",
+        "kind": {
+            "group": "backup.io",
+            "version": "v1alpha1",
+            "kind": "BackupTarget"
+        },
+        "resource": {
+            "group": "backup.io",
+            "version": "v1alpha1",
+            "resource": "backuptargets"
+        },
+        "requestKind": {
+            "group": "backup.io",
+            "version": "v1alpha1",
+            "kind": "BackupTarget"
+        },
+        "requestResource": {
+            "group": "backup.io",
+            "version": "v1alpha1",
+            "resource": "backuptargets"
+        },
+        "name": "aws-west-2-target",
+        "operation": "CREATE",
+        "userInfo": {
+            "username": "kube-review",
+            "uid": "4f5edbdb-8856-463d-9b19-d10eda3cecb8"
+        },
+        "object": {
+            "apiVersion": "backup.io/v1alpha1",
+            "kind": "BackupTarget",
+            "metadata": {
+                "name": "aws-west-2-target"
+            },
+            "spec": {
+                "advanced": {
+                    "object-lock": true
+                },
+                "bucket-name": "storage-bucket",
+                "cloudprovider": "aws",
+                "region": "us-west-2"
+            }
+        },
+        "oldObject": null,
+        "dryRun": true,
+        "options": {
+            "kind": "CreateOptions",
+            "apiVersion": "meta.k8s.io/v1"
+        }
+    }
+}

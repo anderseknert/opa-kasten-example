@@ -1,0 +1,62 @@
+{
+    "kind": "AdmissionReview",
+    "apiVersion": "admission.k8s.io/v1",
+    "request": {
+        "uid": "3c27679a-fc90-4110-8fe1-4d0cc5e950d6",
+        "kind": {
+            "group": "backup.io",
+            "version": "v1alpha1",
+            "kind": "Policy"
+        },
+        "resource": {
+            "group": "backup.io",
+            "version": "v1alpha1",
+            "resource": "policies"
+        },
+        "requestKind": {
+            "group": "backup.io",
+            "version": "v1alpha1",
+            "kind": "Policy"
+        },
+        "requestResource": {
+            "group": "backup.io",
+            "version": "v1alpha1",
+            "resource": "policies"
+        },
+        "name": "backup-policy",
+        "operation": "CREATE",
+        "userInfo": {
+            "username": "kube-review",
+            "uid": "e4814419-1f9f-418d-add9-1e2c7506fef7"
+        },
+        "object": {
+            "apiVersion": "backup.io/v1alpha1",
+            "kind": "Policy",
+            "metadata": {
+                "name": "backup-policy"
+            },
+            "spec": {
+                "actions": [
+                    {
+                        "action": "backup",
+                        "schedule": "@hourly"
+                    },
+                    {
+                        "action": "backup-copy"
+                    }
+                ],
+                "retention": {
+                    "months": [
+                        3
+                    ]
+                }
+            }
+        },
+        "oldObject": null,
+        "dryRun": true,
+        "options": {
+            "kind": "CreateOptions",
+            "apiVersion": "meta.k8s.io/v1"
+        }
+    }
+}

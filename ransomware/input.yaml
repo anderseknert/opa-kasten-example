@@ -1,0 +1,10 @@
+apiVersion: backup.io/v1alpha1
+kind: BackupTarget
+metadata:
+  name: aws-west-2-target
+spec:
+  cloudprovider: aws
+  region: us-west-2
+  bucket-name: storage-bucket
+  advanced:
+     object-lock: true

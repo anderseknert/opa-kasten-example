@@ -1,0 +1,11 @@
+apiVersion: backup.io/v1alpha1
+kind: Policy
+metadata:
+  name: backup-policy
+spec:
+  retention:
+     years: [7]
+  actions:
+    - action: backup
+      schedule: '#:00'
+    - action: backup-copy
