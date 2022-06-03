@@ -1,5 +1,7 @@
 package policy
 
+import input.request.object as object
+
 import future.keywords
 
 default allow := false
