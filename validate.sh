@@ -3,7 +3,7 @@
 exit_code=0
 
 for dir in ./*/; do
-    result=$(opa eval -f raw -d "$dir"policy.rego -i "$dir"input.json 'data.policy.allow')
+    result=$(kube-review create "$dir"input.yaml | opa eval -f raw -I -d "$dir"policy.rego 'data.policy.allow')
 
     if [ "$result" != "true" ]; then
         echo "Policy validation failure in $dir"
