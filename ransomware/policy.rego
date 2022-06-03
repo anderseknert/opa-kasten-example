@@ -2,13 +2,15 @@ package policy
 
 import future.keywords
 
+default allow := false
+
 allow {
-    input.request.spec.cloudprovider == "aws"
-    input.request.spec.advanced["object-lock"] == true
+    input.request.object.spec.cloudprovider == "aws"
+    input.request.object.spec.advanced["object-lock"] == true
 }
 
 
 allow {
-    input.request.spec.cloudprovider == "aws"
-    input.request.spec.advanced["air-gap"] == true
+    input.request.object.spec.cloudprovider == "aws"
+    input.request.object.spec.advanced["air-gap"] == true
 }

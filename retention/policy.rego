@@ -1,1 +1,3 @@
 package policy
+
+allow := true
