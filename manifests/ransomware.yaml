@@ -7,4 +7,4 @@ spec:
   region: us-west-2
   bucket-name: storage-bucket
   advanced:
-     object-lock: true
+     object-lock: false
