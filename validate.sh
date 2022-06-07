@@ -32,4 +32,9 @@ for file in ./manifests/*; do
     fi
 done
 
+if [ "$exit_code" == "0" ]; then
+    echo
+    echo "No violations found"
+fi
+
 exit "$exit_code"
