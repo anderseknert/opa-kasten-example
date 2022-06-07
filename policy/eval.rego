@@ -1,5 +1,3 @@
-# METADATA
-# description: something here
 package eval
 
 deny[message] {

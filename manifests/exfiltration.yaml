@@ -1,0 +1,10 @@
+apiVersion: restore.io/v1alpha1
+kind: RestoreJob
+metadata:
+  name: restore-job
+spec:
+  target:
+     namespace: prod-copy
+  actions:
+    - action: restore
+      schedule: now
