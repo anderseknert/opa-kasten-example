@@ -2,6 +2,16 @@
 
 exit_code=0
 
+function error() {
+    local filename=$1
+    local result=$2
+    if [ "$GITHUB_ACTIONS" == "true" ]; then
+        echo "::error file={$filename},title={Policy violation}::{$result}"
+    else
+        echo "Policy violation in $filename: $result"
+    fi
+}
+
 if [ $(which kube-review) ]; then
     kr=$(which kube-review)
 else
@@ -15,8 +25,9 @@ for file in ./manifests/*; do
     result=$($kr create "$file" | opa eval -f raw -I -d policy/ 'data.eval.deny')
 
     if [ "$result" != "[]" ]; then
-        echo "Policy validation failure in $filename"
-        echo "Output: $result"
+        echo
+        error "$filename" "$result"
+        echo
         exit_code=1
     fi
 done
