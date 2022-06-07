@@ -9,4 +9,4 @@ spec:
   actions:
     - action: backup
       schedule: '@hourly'
-    - action: backup-copy
+
