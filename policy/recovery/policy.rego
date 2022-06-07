@@ -1,11 +1,11 @@
-package policy
+package policy.recovery
 
 import future.keywords
 
-allow {
+deny["Policy must include backup action"] {
     input.request.kind.kind == "Policy"
     input.request.kind.group == "backup.io"
-    has_backup_policy
+    not has_backup_policy
 }
 
 has_backup_policy {
